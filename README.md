@@ -6,6 +6,7 @@
 #### সাধারনত main.dart এ wrap করে দিতে হয়:
 
 # Provider Types শিখা
+
 #### StateProvider → simple value/state store
 #### FutureProvider → async data load (যেমন API call)
 #### StreamProvider → live data stream
