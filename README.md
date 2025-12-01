@@ -105,6 +105,22 @@ FutureProvider asynchronous operation (যেমন API call) handle করে �
 
 ---
 
+### 4️⃣`StreamProvider` কী এবং কেন?
+StreamProvider continuous data stream handle করে (যেমন real-time updates)।
+
+
+**কখন ব্যবহার করবে?**
+
+- Firebase Firestore real-time updates
+- WebSocket connections
+- Location tracking
+- Timer/Clock
+- Chat messages
+
+
+[StreamProvider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/stream_provider/stream_provider.dart)
+
+---
 #### Copywith method
 * select() → নির্দিষ্ট property watch করো, অপ্রয়োজনীয় rebuild কমবে।
 * autoDispose
