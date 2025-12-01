@@ -68,24 +68,21 @@ StateProvider ব্যবহার করলে UI কে reactive করা �
 - TextField এর temporary value
 - Theme mode (light/dark)
 
-[State Provider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/state_provider)
+[State Provider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/state_provider/state_provider.dart)
 
-------
+---
 
-### 1️⃣ `StateProvider` কী এবং কেন?
-StateProvider হলো Riverpod এর সবচেয়ে simple provider, যা একটি single value বা state store করতে ব্যবহার হয়।
-এটি সাধারণত ছোটখাটো, simple UI state–এর জন্য ব্যবহার হয়।
-StateProvider ব্যবহার করলে UI কে reactive করা যায় ref.watch() দিয়ে, এবং state change করা যায় ref.read() বা notifier দিয়ে।
+### 2️⃣ `Provider` কী এবং কেন?
+Provider হলো read-only value প্রদান করে। এর মান পরিবর্তন করা যায় না।
 
 **কখন ব্যবহার করবে?**
 
-- Simple counter
-- Toggle button (true/false)
-- Dropdown selection
-- TextField এর temporary value
-- Theme mode (light/dark)
+- Dependency injection (Repository, Service)
+- Configuration values
+- Constants
+- অন্য provider থেকে computed value
 
-[State Provider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/state_provider)
+[Provider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/provider/provider.dart)
 
 ---
 
