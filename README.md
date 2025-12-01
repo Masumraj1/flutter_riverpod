@@ -16,9 +16,6 @@
 
 
 ```dart
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 void main() {
   runApp(
     const ProviderScope(
@@ -29,7 +26,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -72,6 +68,7 @@ StateProvider হলো সবচেয়ে সিম্পল Provider। এ
 
 [State Provider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/state_provider)
 
+---
 
 #### Copywith method
 * select() → নির্দিষ্ট property watch করো, অপ্রয়োজনীয় rebuild কমবে।
