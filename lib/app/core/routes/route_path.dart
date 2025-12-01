@@ -1,8 +1,7 @@
 class RoutePath {
   static const String basePath = '/';
-  static const String signIn = 'sign_in';
-  static const String signUp = 'sign_up';
-  static const String home = 'home';
+  static const String counterPage = 'CounterPage';
+
 }
 
 extension RouteBasePathExt on String {
