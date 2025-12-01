@@ -85,6 +85,25 @@ Provider হলো read-only value প্রদান করে। এর মা
 [Provider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/provider/provider.dart)
 
 ---
+### 3️⃣` FutureProvider` কী এবং কেন?
+FutureProvider asynchronous operation (যেমন API call) handle করে এবং AsyncValue return করে।
+
+**কখন ব্যবহার করবে?**
+
+- API থেকে data fetch
+- Database query
+- File reading
+- যেকোনো async operation যা একবার execute হয়
+
+**AsyncValue এর তিনটি state**
+
+1. loading - ডেটা লোড হচ্ছে
+2. data - ডেটা পাওয়া গেছে
+3. error - এরর হয়েছে
+
+[FutureProvider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/future_provider/future_provider.dart)
+
+---
 
 #### Copywith method
 * select() → নির্দিষ্ট property watch করো, অপ্রয়োজনীয় rebuild কমবে।
