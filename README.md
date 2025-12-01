@@ -70,7 +70,7 @@ StateProvider হলো সবচেয়ে সিম্পল Provider। এ
 - TextField এর temporary value
 - Theme mode (light/dark)
 
-[features folder দেখতে এখানে ক্লিক করুন](lib/app/all_provider/state_provider/)
+[State Provider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/state_provider)
 
 
 #### Copywith method
