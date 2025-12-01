@@ -48,17 +48,19 @@ Flutter Riverpod-এ বিভিন্ন ধরনের Provider আছে।
 ## 📦 সূচিপত্র
 
 - StateProvider
-  Provider
-  FutureProvider
-  StreamProvider
-  StateNotifierProvider
-  ChangeNotifierProvider
-  NotifierProvider
-  AsyncNotifierProvider
-  ref এর ব্যবহার
-Riverpod-এ মূলত কিছু Common Provider Type বেশি ব্যবহার হয়। এগুলোর কাজ ঠিকমতো বুঝলে ৭০% কাজ সহজ হয়ে যায়।
+- Provider
+- FutureProvider
+- StreamProvider
+- StateNotifierProvider
+- ChangeNotifierProvider
+- NotifierProvider
+- AsyncNotifierProvider
+- ref এর ব্যবহার
 
-### 1️⃣ `StateProvider` → Simple value/state store
+---
+
+### 1️⃣ `StateProvider` কী এবং কেন?
+StateProvider হলো সবচেয়ে সিম্পল Provider। এটি একটি মান (value) রাখে যা সহজেই পরিবর্তন করা যায়।
 
 **কখন ব্যবহার করবে?**
 
