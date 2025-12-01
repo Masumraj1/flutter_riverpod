@@ -64,13 +64,13 @@ StateProvider হলো সবচেয়ে সিম্পল Provider। এ
 
 **কখন ব্যবহার করবে?**
 
-- Counter এর ভ্যালু
-- Toggle (true/false)
-- Dropdown এ selected value
+- Simple counter
+- Toggle button (true/false)
+- Dropdown selection
 - TextField এর temporary value
+- Theme mode (light/dark)
 
-```dart
-final countProvider = StateProvider<int>((ref) => 0);
+[features folder দেখতে এখানে ক্লিক করুন](lib/app/all_provider/state_provider/)
 
 
 #### Copywith method
