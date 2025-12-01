@@ -1,5 +1,3 @@
-# riverpod_prectice
-
 # 📦 ProviderScope — Riverpod এর হৃৎপিণ্ড
 
 `ProviderScope` না থাকলে **Riverpod একদম কাজই করবে না**।  
