@@ -121,6 +121,151 @@ StreamProvider continuous data stream handle করে (যেমন real-time u
 [StreamProvider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/stream_provider/stream_provider.dart)
 
 ---
+
+### 5️⃣ `StateNotifierProvider` কী এবং কেন?
+StateNotifierProvider complex state management এর জন্য। এটি StateNotifier class ব্যবহার করে।
+
+**কখন ব্যবহার করবে?**
+
+- Complex business logic
+- Multiple related states
+- Form validation
+- Shopping cart
+- Authentication flow
+
+
+[StateNotifierProvider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/state_notifier_provider/state_notifier_provider.dart)
+
+---
+
+### 6️⃣ `ChangeNotifierProvider` কী এবং কেন?
+ChangeNotifierProvider হলো Flutter এর ChangeNotifier এর সাথে কাজ করে। এটি legacy code এর জন্য ভালো।
+
+**কখন ব্যবহার করবে?**
+
+- Quick prototyping
+- Existing ChangeNotifier code migrate করতে
+
+⚠️ নতুন প্রজেক্টে StateNotifierProvider বা NotifierProvider ব্যবহার করুন
+
+[ChangeNotifierProvider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/change_notifier_provider/change_notifier_provider.dart)
+
+---
+
+### 7️⃣ `NotifierProvider` কী এবং কেন?
+NotifierProvider হলো Riverpod 2.0+ এর modern approach। এটি StateNotifierProvider এর চেয়ে বেশি flexible।
+
+**কখন ব্যবহার করবে?**
+
+- Modern Riverpod projects
+- Complex state with multiple methods
+- Better type safety
+- Easier testing
+
+
+[NotifierProvider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/notifier_provider/notifier_provider.dart)
+
+---
+
+### 8️⃣ `AsyncNotifierProvider` কী এবং কেন?
+AsyncNotifierProvider asynchronous state management এর জন্য modern solution।
+
+**কখন ব্যবহার করবে?**
+
+- API calls with state management
+- Database operations with loading/error states
+- Complex async workflows
+- Pagination
+
+
+[AsyncNotifierProvider Code Example দেখতে এখানে ক্লিক করুন](lib/app/all_provider/async_notifier_provider/async_notifier_provider.dart)
+
+---
+
+**ref এর ব্যবহার**
+ref হলো Riverpod এর সবচেয়ে গুরুত্বপূর্ণ object। এর মাধ্যমে provider এর সাথে interact করা হয়।
+
+ref.watch() - Reactive Updates
+কখন ব্যবহার করবেন?
+
+- UI তে value দেখাতে
+- Automatic rebuild চাইলে
+- Provider এর পরিবর্তন track করতে
+
+```dart
+class MyWidget extends ConsumerWidget {
+@override
+Widget build(BuildContext context, WidgetRef ref) {
+// watch করলে value change হলে rebuild হবে
+final count = ref.watch(counterProvider);
+
+    return Text('Count: $count');
+}
+}
+```
+
+**ref.read()** - One-time Read
+কখন ব্যবহার করবেন?
+
+✅ Event handler এ (onPressed, onChanged)
+✅ One-time value পড়তে
+✅ Method call করতে
+
+```dart
+ElevatedButton(
+onPressed: () {
+// read করলে rebuild হবে না
+ref.read(counterProvider.notifier).state++;
+},
+child: Text('Increment'),
+)
+```
+**ref.listen()** - Side Effects
+কখন ব্যবহার করবেন?
+
+✅ Snackbar দেখাতে
+✅ Navigation করতে
+✅ Dialog show করতে
+
+```dart
+class MyWidget extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Listen for changes
+    ref.listen(authProvider, (previous, next) {
+      next.when(
+        data: (user) {
+          if (user != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Logged in successfully!')),
+            );
+          }
+        },
+        loading: () {},
+        error: (error, _) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Error: $error')),
+          );
+        },
+      );
+    });
+
+    return Container();
+  }
+}
+```
+
+**ref.invalidate()** - Refresh Provider
+
+```dart
+ElevatedButton(
+onPressed: () {
+// Provider refresh করবে
+ref.invalidate(userProvider);
+},
+child: Text('Refresh'),
+)
+```
 #### Copywith method
 * select() → নির্দিষ্ট property watch করো, অপ্রয়োজনীয় rebuild কমবে।
 * autoDispose
