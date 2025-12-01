@@ -16,9 +16,6 @@
 - Future এ চাইলে আলাদা আলাদা scope তৈরি করে **different state tree** বানানো যায়
 - Testing এর সময় সহজে provider **override** করা যায়
 
----
-
-## 🧱 Basic Setup (main.dart এ ব্যবহার)
 
 ```dart
 import 'package:flutter/material.dart';
@@ -26,7 +23,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
   runApp(
-    const ProviderScope( // 👈 এখান থেকেই সব provider অ্যাক্সেস করা যাবে
+    const ProviderScope(
       child: MyApp(),
     ),
   );
@@ -44,7 +41,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+```
 
 # Provider Types শিখা
 
