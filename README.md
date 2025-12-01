@@ -1,9 +1,50 @@
 # riverpod_prectice
 
-# ProviderScope
-#### ProviderScope না দিলে Riverpod একদম কাজ করবে না।
-#### কারণ ProviderScope হচ্ছে একটা গ্লোবাল container যেখানে সব provider গুলো store হয়।
-#### সাধারনত main.dart এ wrap করে দিতে হয়:
+# 📦 ProviderScope — Riverpod এর হৃৎপিণ্ড
+
+`ProviderScope` না থাকলে **Riverpod একদম কাজই করবে না**।  
+কারণ `ProviderScope` হচ্ছে একটা **গ্লোবাল container** যেখানে আমাদের সব `provider` গুলো store হয় এবং সেখান থেকেই এগুলোকে অ্যাপে যেকোন জায়গা থেকে read / watch করা যায়।
+
+সাধারণত আমরা `main.dart` ফাইলে পুরো অ্যাপটাকে `ProviderScope` দিয়ে wrap করে দেই।
+
+---
+
+## 🔧 কেন ProviderScope দরকার?
+
+- সব `provider` এর **state & lifecycle** manage করে
+- যেকোন widget থেকে `ref.watch / ref.read` ব্যবহার করার সুবিধা দেয়
+- Future এ চাইলে আলাদা আলাদা scope তৈরি করে **different state tree** বানানো যায়
+- Testing এর সময় সহজে provider **override** করা যায়
+
+---
+
+## 🧱 Basic Setup (main.dart এ ব্যবহার)
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+void main() {
+  runApp(
+    const ProviderScope( // 👈 এখান থেকেই সব provider অ্যাক্সেস করা যাবে
+      child: MyApp(),
+    ),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Riverpod ProviderScope Demo',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      home: const HomePage(),
+    );
+  }
+}
+
 
 # Provider Types শিখা
 
