@@ -40,29 +40,29 @@ class MyApp extends StatelessWidget {
   }
 }
 ```
+# 🌱 Riverpod Provider Types & `ref` ব্যবহার একসাথে বোঝার গাইড
 
-# Provider Types শিখা
+এই ডকুমেন্টে আমরা Riverpod-এর গুরুত্বপূর্ণ Provider Types আর `ref.watch / ref.read / ref.listen`—এইগুলোকে একবারে পরিষ্কারভাবে বুঝব।  
+পুরোটাই বাংলায় + GitHub-friendly `README.md` স্টাইলে সাজানো 💚
 
+---
 
-#### StateProvider → simple value/state store
-#### FutureProvider → async data load (যেমন API call)
-#### StreamProvider → live data stream
-#### StateNotifierProvider → complex state management (counter, list, model)
+## 📦 Provider Types শিখা
 
-# ref.watch, ref.read, ref.listen
-#### ref.watch() → UI কে reactive করে (value change হলে rebuild হবে)
-#### ref.read() → শুধু value নেবে, rebuild করবে না (onTap, onPressed এ ভালো use হয়)
-#### ref.listen() → value change observe করবে (SnackBar, Navigation, Logging এর জন্য)
-#### NotifierProvider (v2) → Riverpod v2 তে নতুন system (OOP feel দেয়)
+Riverpod-এ মূলত কিছু Common Provider Type বেশি ব্যবহার হয়। এগুলোর কাজ ঠিকমতো বুঝলে ৭০% কাজ সহজ হয়ে যায়।
 
-### Riverpod নিজে route system দেয় না ❌ — কারণ Riverpod মূলত state management library।
+### 1️⃣ `StateProvider` → Simple value/state store
 
-Riverpod মূলত cache-এর মতোই state ধরে রাখে।
-তুমি যদি autoDispose ব্যবহার না করো, তাহলে provider-এর state memory তে থাকবে যতক্ষণ না:
+**কখন ব্যবহার করবে?**
 
-ProviderScope destroy হয়
+- Counter এর ভ্যালু
+- Toggle (true/false)
+- Dropdown এ selected value
+- TextField এর temporary value
 
-তুমি manually invalidate করো
+```dart
+final countProvider = StateProvider<int>((ref) => 0);
+
 
 #### Copywith method
 * select() → নির্দিষ্ট property watch করো, অপ্রয়োজনীয় rebuild কমবে।
