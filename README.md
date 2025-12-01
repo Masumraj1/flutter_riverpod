@@ -56,7 +56,9 @@ Flutter Riverpod-এ বিভিন্ন ধরনের Provider আছে।
 ---
 
 ### 1️⃣ `StateProvider` কী এবং কেন?
-StateProvider হলো সবচেয়ে সিম্পল Provider। এটি একটি মান (value) রাখে যা সহজেই পরিবর্তন করা যায়।
+StateProvider হলো Riverpod এর সবচেয়ে simple provider, যা একটি single value বা state store করতে ব্যবহার হয়।
+এটি সাধারণত ছোটখাটো, simple UI state–এর জন্য ব্যবহার হয়।
+StateProvider ব্যবহার করলে UI কে reactive করা যায় ref.watch() দিয়ে, এবং state change করা যায় ref.read() বা notifier দিয়ে।
 
 **কখন ব্যবহার করবে?**
 
